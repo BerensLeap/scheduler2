@@ -1,12 +1,10 @@
 package com.example.scheduleApp.common.config;
 
-import com.example.scheduleApp.filter.LoginFilter;
+import com.example.scheduleApp.common.filter.LoginFilter;
 import jakarta.servlet.Filter;
-import jakarta.servlet.FilterRegistration;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
