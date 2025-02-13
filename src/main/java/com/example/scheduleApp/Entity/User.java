@@ -1,10 +1,11 @@
 package com.example.scheduleApp.Entity;
 
 import jakarta.persistence.*;
+import lombok.Setter;
 
 @Entity
 @Table(name = "user")
-
+@Setter
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
