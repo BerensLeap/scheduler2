@@ -1,5 +1,6 @@
 package com.example.scheduleApp.entity;
 
+import com.example.scheduleApp.config.PasswordEncoder;
 import jakarta.persistence.*;
 import lombok.Setter;
 
@@ -19,4 +20,8 @@ public class User extends BaseEntity {
 
     @Column(unique = true)
     private String email;
+
+    public String getPassword() {
+        return password;
+    }
 }

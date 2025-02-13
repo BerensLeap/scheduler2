@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.scheduleApp.config;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
