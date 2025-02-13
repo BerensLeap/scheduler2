@@ -2,7 +2,7 @@ package com.example.scheduleApp.schedule.entity;
 
 import com.example.scheduleApp.User.entity.User;
 import com.example.scheduleApp.common.entity.BaseEntity;
-import com.example.scheduleApp.entity.Comment;
+import com.example.scheduleApp.comment.entity.Comment;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
