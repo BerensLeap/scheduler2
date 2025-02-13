@@ -1,4 +1,4 @@
-package com.example.scheduleApp.config;
+package com.example.scheduleApp.common.config;
 
 import com.example.scheduleApp.filter.LoginFilter;
 import jakarta.servlet.Filter;

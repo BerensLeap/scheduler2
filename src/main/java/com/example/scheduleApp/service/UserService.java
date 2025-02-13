@@ -1,10 +1,12 @@
 package com.example.scheduleApp.service;
 
-import com.example.scheduleApp.config.PasswordEncoder;
-import com.example.scheduleApp.exception.AuthenticationFailException;
-import com.example.scheduleApp.exception.NoSuchEmailException;
+import com.example.scheduleApp.common.config.PasswordEncoder;
+import com.example.scheduleApp.dto.LoginResponseDto;
+import com.example.scheduleApp.common.exception.AuthenticationFailException;
+import com.example.scheduleApp.common.exception.NoSuchEmailException;
 import com.example.scheduleApp.repository.UserRepository;
 import com.example.scheduleApp.entity.User;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,13 +30,15 @@ public class UserService {
         userRepository.save(newUser);
     }
 
-    public boolean loginUser(String email, String password) { // 로그인
+    public LoginResponseDto login(String email, String password) { // 로그인
         User user = userRepository.findByEmail(email) // 이메일로 유저 조회, 없으면 예외
                 .orElseThrow(()-> new NoSuchEmailException("User with email " + email + " not found"));
 
         if(!passwordEncoder.matches(password, user.getPassword())) {
             throw new AuthenticationFailException("Wrong password");
         }
-        return true;
+
+        // 로그인 성공 시, 세션에
+        HttpSession session = request.getSession();
     }
 }

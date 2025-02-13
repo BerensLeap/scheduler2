@@ -1,13 +1,17 @@
 package com.example.scheduleApp.entity;
 
-import com.example.scheduleApp.config.PasswordEncoder;
+import com.example.scheduleApp.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Getter
 @Entity
 @Table(name = "user")
 @Setter
+@NoArgsConstructor
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

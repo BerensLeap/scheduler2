@@ -1,4 +1,4 @@
-package com.example.scheduleApp.exception;
+package com.example.scheduleApp.common.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

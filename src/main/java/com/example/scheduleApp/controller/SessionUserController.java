@@ -1,8 +1,7 @@
 package com.example.scheduleApp.controller;
 
-import com.example.scheduleApp.config.PasswordEncoder;
 import com.example.scheduleApp.dto.LoginRequestDto;
-import com.example.scheduleApp.repository.UserRepository;
+import com.example.scheduleApp.entity.User;
 import com.example.scheduleApp.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -14,12 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class LoginController {
+public class SessionUserController {
 
     private final UserService userService;
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@Validated @RequestBody LoginRequestDto requestDto, HttpServletRequest request) {
+    @PostMapping("/session-login")
+    public ResponseEntity<String> login(@Validated @RequestBody LoginRequestDto requestDto) {
+        // 로그인 처리
+        userService.login(requestDto.getEmail(), requestDto.getPassword())
 
     }
 }
