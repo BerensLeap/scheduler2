@@ -2,6 +2,7 @@ package com.example.scheduleApp.entity;
 
 import com.example.scheduleApp.config.PasswordEncoder;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Setter;
 
 @Entity
@@ -19,6 +20,7 @@ public class User extends BaseEntity {
     private String password;
 
     @Column(unique = true)
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Invalid email format")
     private String email;
 
     public String getPassword() {
