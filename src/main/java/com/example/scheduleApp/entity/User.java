@@ -1,4 +1,4 @@
-package com.example.scheduleApp.Entity;
+package com.example.scheduleApp.entity;
 
 import jakarta.persistence.*;
 import lombok.Setter;

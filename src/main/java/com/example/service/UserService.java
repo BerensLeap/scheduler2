@@ -1,8 +1,8 @@
 package com.example.service;
 
 import com.example.config.PasswordEncoder;
-import com.example.repository.UserRepository;
-import com.example.scheduleApp.Entity.User;
+import com.example.scheduleApp.repository.UserRepository;
+import com.example.scheduleApp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
