@@ -1,8 +1,8 @@
 package com.example.scheduleApp.schedule.service;
 
+import com.example.scheduleApp.User.entity.User;
 import com.example.scheduleApp.common.exception.ScheduleNotFoundException;
 import com.example.scheduleApp.common.exception.UnauthorizedAccessException;
-import com.example.scheduleApp.entity.User;
 import com.example.scheduleApp.schedule.repository.ScheduleRepository;
 import com.example.scheduleApp.schedule.dto.ScheduleResponseDto;
 import com.example.scheduleApp.schedule.entity.Schedule;
@@ -31,7 +31,7 @@ public class ScheduleService {
                 savedSchedule.getId(),
                 savedSchedule.getTitle(),
                 savedSchedule.getContent(),
-                savedSchedule.getUser().getUsername(),
+                savedSchedule.getUser().getUserName(),
                 savedSchedule.getCreatedAt(),
                 savedSchedule.getUpdatedAt()
         );
@@ -56,26 +56,26 @@ public class ScheduleService {
     }
 
     @Transactional
-    public ScheduleResponseDto updateTitleOrContent(Long id,String title, String content, User registerMember) { // title, content 업데이트
+    public ScheduleResponseDto updateTitleOrContent(Long id,String title, String content, User registerUser) { // title, content 업데이트
         Schedule schedule = scheduleRepository.findById(id).orElseThrow(
                 () -> new ScheduleNotFoundException("Schedule not found")
         );
-        validateAuth(registerMember, schedule); // 검증
+        validateAuth(registerUser, schedule); // 검증
         schedule.update(title, content);
         return ScheduleResponseDto.toDto(schedule);
     }
 
     @Transactional
-    public void deleteById(Long id, User registerMember) {
+    public void deleteById(Long id, User registerUser) {
         Schedule schedule = scheduleRepository.findById(id).orElseThrow(
                 () -> new ScheduleNotFoundException("Schedule not found"));
-        validateAuth(registerMember, schedule); // 검증
+        validateAuth(registerUser, schedule); // 검증
         scheduleRepository.deleteById(id);
 
     }
 
-    public static void validateAuth(User registerMember, Schedule schedule) { // 작성 유저와 로그인 유저 일치 검증
-        if (!schedule.getUser().getUsername().equals(registerMember.getUsername())) {
+    public static void validateAuth(User registerUser, Schedule schedule) { // 작성 유저와 로그인 유저 일치 검증
+        if (!schedule.getUser().getUserName().equals(registerUser.getUserName())) {
             throw new UnauthorizedAccessException("No authorization");
         }
     }

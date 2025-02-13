@@ -1,8 +1,8 @@
 package com.example.scheduleApp.schedule.entity;
 
+import com.example.scheduleApp.User.entity.User;
 import com.example.scheduleApp.common.entity.BaseEntity;
 import com.example.scheduleApp.entity.Comment;
-import com.example.scheduleApp.entity.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

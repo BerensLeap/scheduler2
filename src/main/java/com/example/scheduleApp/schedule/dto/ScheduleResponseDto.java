@@ -22,7 +22,7 @@ public class ScheduleResponseDto {
                 schedule.getId(),
                 schedule.getTitle(),
                 schedule.getContent(),
-                schedule.getUser().getUsername(),
+                schedule.getUser().getUserName(),
                 schedule.getCreatedAt(),
                 schedule.getUpdatedAt()
         );

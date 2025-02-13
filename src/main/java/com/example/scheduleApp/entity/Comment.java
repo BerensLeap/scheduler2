@@ -1,5 +1,6 @@
 package com.example.scheduleApp.entity;
 
+import com.example.scheduleApp.User.entity.User;
 import com.example.scheduleApp.common.entity.BaseEntity;
 import com.example.scheduleApp.schedule.entity.Schedule;
 import jakarta.persistence.*;
